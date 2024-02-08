@@ -318,6 +318,10 @@ func (c *Client) Wait(resources ResourceList, timeout time.Duration) error {
 
 // WaitWithJobs wait up to the given timeout for the specified resources to be ready, including jobs.
 func (c *Client) WaitWithJobs(resources ResourceList, timeout time.Duration) error {
+	if c.ResourcesWaiter != nil {
+		return c.ResourcesWaiter.Wait(context.Background(), resources, timeout)
+	}
+
 	cs, err := c.getKubeClient()
 	if err != nil {
 		return err
