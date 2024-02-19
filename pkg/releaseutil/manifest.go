@@ -33,7 +33,7 @@ type SimpleHead struct {
 	} `json:"metadata,omitempty"`
 }
 
-var sep = regexp.MustCompile("(?:^|\\s*\n)---\\s*")
+var sep = regexp.MustCompile(`(?m)^---.*$`)
 
 // SplitManifests takes a string of manifest and returns a map contains individual manifests
 func SplitManifests(bigFile string) map[string]string {
