@@ -43,6 +43,10 @@ func SaveDir(c *chart.Chart, dest string) error {
 // directory, writing the chart's contents to that subdirectory.
 func SaveIntoDir(c *chart.Chart, dest string) error {
 	// Create the chart directory
+	err := validateName(c.Name())
+	if err != nil {
+		return err
+	}
 	outdir := dest
 	if fi, err := os.Stat(outdir); err == nil && !fi.IsDir() {
 		return errors.Errorf("file %s already exists and is not a directory", outdir)
@@ -166,6 +170,10 @@ func Save(c *chart.Chart, outDir string) (string, error) {
 }
 
 func writeTarContents(out *tar.Writer, c *chart.Chart, prefix string) error {
+	err := validateName(c.Name())
+	if err != nil {
+		return err
+	}
 	base := filepath.Join(prefix, c.Name())
 
 	// Pull out the dependencies of a v1 Chart, since there's no way
@@ -258,4 +266,16 @@ func writeToTar(out *tar.Writer, name string, body []byte) error {
 	}
 	_, err := out.Write(body)
 	return err
+}
+
+// If the name has directory name has characters which would change the location
+// they need to be removed.
+func validateName(name string) error {
+	nname := filepath.Base(name)
+
+	if nname != name {
+		return ErrInvalidChartName{name}
+	}
+
+	return nil
 }
