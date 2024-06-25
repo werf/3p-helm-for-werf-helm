@@ -17,19 +17,20 @@ limitations under the License.
 package action
 
 import (
+	"bytes"
 	"fmt"
 	"os"
 	"strings"
 	"time"
 
 	"github.com/pkg/errors"
-
 	"helm.sh/helm/v3/pkg/chartutil"
 	"helm.sh/helm/v3/pkg/kube"
 	"helm.sh/helm/v3/pkg/phases"
 	"helm.sh/helm/v3/pkg/phases/phasemanagers"
 	"helm.sh/helm/v3/pkg/phases/stages"
 	"helm.sh/helm/v3/pkg/release"
+	"helm.sh/helm/v3/pkg/releaseutil"
 	helmtime "helm.sh/helm/v3/pkg/time"
 )
 
@@ -199,6 +200,11 @@ func (r *Rollback) performRollback(currentRelease, targetRelease *release.Releas
 		return targetRelease, nil
 	}
 
+	target, err := r.cfg.KubeClient.Build(bytes.NewBufferString(targetRelease.Manifest), false)
+	if err != nil {
+		return targetRelease, errors.Wrap(err, "unable to build kubernetes objects from new release manifest")
+	}
+
 	// pre-rollback hooks
 	if !r.DisableHooks {
 		if err := r.cfg.execHook(targetRelease, release.HookPreRollback, r.Timeout); err != nil {
@@ -208,6 +214,12 @@ func (r *Rollback) performRollback(currentRelease, targetRelease *release.Releas
 		r.cfg.Log("rollback hooks disabled for %s", targetRelease.Name)
 	}
 
+	// It is safe to use "force" here because these are resources currently rendered by the chart.
+	err = target.Visit(releaseutil.SetMetadataVisitor(targetRelease.Name, targetRelease.Namespace, true))
+	if err != nil {
+		return targetRelease, errors.Wrap(err, "unable to set metadata visitor from target release")
+	}
+
 	history, err := r.cfg.Releases.HistoryUntilRevision(targetRelease.Name, targetRelease.Version)
 	if err != nil {
 		recordFailedStatus(r.cfg, currentRelease, targetRelease, err)
@@ -215,7 +227,7 @@ func (r *Rollback) performRollback(currentRelease, targetRelease *release.Releas
 	}
 
 	rolloutPhase, err := phases.NewRolloutPhase(targetRelease, r.StagesSplitter, r.cfg.KubeClient).
-		ParseStagesFromString(targetRelease.Manifest)
+		ParseStages(target)
 	if err != nil {
 		recordFailedStatus(r.cfg, currentRelease, targetRelease, err)
 		return targetRelease, err
