@@ -20,8 +20,8 @@ import (
 	"bytes"
 	"errors"
 
-	"helm.sh/helm/v3/pkg/kube"
-	"helm.sh/helm/v3/pkg/release"
+	"github.com/werf/3p-helm/pkg/kube"
+	"github.com/werf/3p-helm/pkg/release"
 )
 
 // Status is the action for checking the deployment status of releases.

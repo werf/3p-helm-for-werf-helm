@@ -22,13 +22,13 @@ import (
 	"os"
 	"strings"
 
-	"helm.sh/helm/v3/pkg/chart"
+	"github.com/werf/3p-helm/pkg/chart"
 
 	"github.com/pkg/errors"
 	"sigs.k8s.io/yaml"
 
-	"helm.sh/helm/v3/pkg/getter"
-	"helm.sh/helm/v3/pkg/strvals"
+	"github.com/werf/3p-helm/pkg/getter"
+	"github.com/werf/3p-helm/pkg/strvals"
 )
 
 // Options captures the different ways to specify values

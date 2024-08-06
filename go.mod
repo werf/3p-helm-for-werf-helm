@@ -1,4 +1,4 @@
-module helm.sh/helm/v3
+module github.com/werf/3p-helm
 
 go 1.21
 

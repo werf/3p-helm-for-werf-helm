@@ -25,10 +25,10 @@ import (
 	"github.com/gosuri/uitable"
 	"github.com/spf13/cobra"
 
-	"helm.sh/helm/v3/cmd/helm/require"
-	"helm.sh/helm/v3/pkg/action"
-	"helm.sh/helm/v3/pkg/cli/output"
-	"helm.sh/helm/v3/pkg/release"
+	"github.com/werf/3p-helm/cmd/helm/require"
+	"github.com/werf/3p-helm/pkg/action"
+	"github.com/werf/3p-helm/pkg/cli/output"
+	"github.com/werf/3p-helm/pkg/release"
 )
 
 var listHelp = `

@@ -19,9 +19,9 @@ package lint // import "helm.sh/helm/v3/pkg/lint"
 import (
 	"path/filepath"
 
-	"helm.sh/helm/v3/pkg/chartutil"
-	"helm.sh/helm/v3/pkg/lint/rules"
-	"helm.sh/helm/v3/pkg/lint/support"
+	"github.com/werf/3p-helm/pkg/chartutil"
+	"github.com/werf/3p-helm/pkg/lint/rules"
+	"github.com/werf/3p-helm/pkg/lint/support"
 )
 
 // All runs all of the available linters on the given base directory.

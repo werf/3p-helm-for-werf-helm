@@ -29,17 +29,17 @@ import (
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 
-	"helm.sh/helm/v3/cmd/helm/require"
-	"helm.sh/helm/v3/pkg/action"
-	"helm.sh/helm/v3/pkg/chart/loader"
-	"helm.sh/helm/v3/pkg/cli/output"
-	"helm.sh/helm/v3/pkg/cli/values"
-	"helm.sh/helm/v3/pkg/downloader"
-	"helm.sh/helm/v3/pkg/errs"
-	"helm.sh/helm/v3/pkg/getter"
-	"helm.sh/helm/v3/pkg/phases"
-	"helm.sh/helm/v3/pkg/postrender"
-	"helm.sh/helm/v3/pkg/storage/driver"
+	"github.com/werf/3p-helm/cmd/helm/require"
+	"github.com/werf/3p-helm/pkg/action"
+	"github.com/werf/3p-helm/pkg/chart/loader"
+	"github.com/werf/3p-helm/pkg/cli/output"
+	"github.com/werf/3p-helm/pkg/cli/values"
+	"github.com/werf/3p-helm/pkg/downloader"
+	"github.com/werf/3p-helm/pkg/errs"
+	"github.com/werf/3p-helm/pkg/getter"
+	"github.com/werf/3p-helm/pkg/phases"
+	"github.com/werf/3p-helm/pkg/postrender"
+	"github.com/werf/3p-helm/pkg/storage/driver"
 )
 
 const upgradeDesc = `

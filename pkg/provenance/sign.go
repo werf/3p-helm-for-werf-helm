@@ -25,13 +25,13 @@ import (
 	"strings"
 
 	"github.com/pkg/errors"
-	"golang.org/x/crypto/openpgp"           //nolint
-	"golang.org/x/crypto/openpgp/clearsign" //nolint
-	"golang.org/x/crypto/openpgp/packet"    //nolint
+	"golang.org/x/crypto/openpgp"           // nolint
+	"golang.org/x/crypto/openpgp/clearsign" // nolint
+	"golang.org/x/crypto/openpgp/packet"    // nolint
 	"sigs.k8s.io/yaml"
 
-	hapi "helm.sh/helm/v3/pkg/chart"
-	"helm.sh/helm/v3/pkg/chart/loader"
+	hapi "github.com/werf/3p-helm/pkg/chart"
+	"github.com/werf/3p-helm/pkg/chart/loader"
 )
 
 var defaultPGPConfig = packet.Config{

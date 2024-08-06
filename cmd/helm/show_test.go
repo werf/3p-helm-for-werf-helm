@@ -22,7 +22,7 @@ import (
 	"strings"
 	"testing"
 
-	"helm.sh/helm/v3/pkg/repo/repotest"
+	"github.com/werf/3p-helm/pkg/repo/repotest"
 )
 
 func TestShowPreReleaseChart(t *testing.T) {
@@ -73,7 +73,7 @@ func TestShowPreReleaseChart(t *testing.T) {
 				filepath.Join(outdir, "repositories.yaml"),
 				outdir,
 			)
-			//_, out, err := executeActionCommand(cmd)
+			// _, out, err := executeActionCommand(cmd)
 			_, _, err := executeActionCommand(cmd)
 			if err != nil {
 				if tt.fail {

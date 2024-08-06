@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"strings"
 
-	"helm.sh/helm/v3/pkg/kube"
-	"helm.sh/helm/v3/pkg/phases"
-	"helm.sh/helm/v3/pkg/phases/stages"
-	rel "helm.sh/helm/v3/pkg/release"
-	"helm.sh/helm/v3/pkg/storage"
+	"github.com/werf/3p-helm/pkg/kube"
+	"github.com/werf/3p-helm/pkg/phases"
+	"github.com/werf/3p-helm/pkg/phases/stages"
+	rel "github.com/werf/3p-helm/pkg/release"
+	"github.com/werf/3p-helm/pkg/storage"
 )
 
 func NewRolloutPhaseManager(rolloutPhase *phases.RolloutPhase, deployedResCalc *phases.DeployedResourcesCalculator, release *rel.Release, storage *storage.Storage, kubeClient kube.Interface) *RolloutPhaseManager {

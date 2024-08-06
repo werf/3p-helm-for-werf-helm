@@ -19,7 +19,7 @@ package helm_v3
 import (
 	"testing"
 
-	"helm.sh/helm/v3/pkg/release"
+	"github.com/werf/3p-helm/pkg/release"
 )
 
 func TestGetCmd(t *testing.T) {

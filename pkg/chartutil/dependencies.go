@@ -22,7 +22,7 @@ import (
 	"strings"
 
 	"github.com/mitchellh/copystructure"
-	"helm.sh/helm/v3/pkg/chart"
+	"github.com/werf/3p-helm/pkg/chart"
 )
 
 // ProcessDependencies checks through this chart's dependencies, processing accordingly.

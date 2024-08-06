@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"helm.sh/helm/v3/pkg/time"
+	"github.com/werf/3p-helm/pkg/time"
 )
 
 func NewDeployReport() *DeployReport {

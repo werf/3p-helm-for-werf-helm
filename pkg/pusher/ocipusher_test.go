@@ -19,7 +19,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"helm.sh/helm/v3/pkg/registry"
+	"github.com/werf/3p-helm/pkg/registry"
 )
 
 func TestNewOCIPusher(t *testing.T) {

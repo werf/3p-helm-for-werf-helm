@@ -22,9 +22,9 @@ import (
 
 	"github.com/pkg/errors"
 
-	rspb "helm.sh/helm/v3/pkg/release"
-	relutil "helm.sh/helm/v3/pkg/releaseutil"
-	"helm.sh/helm/v3/pkg/storage/driver"
+	rspb "github.com/werf/3p-helm/pkg/release"
+	relutil "github.com/werf/3p-helm/pkg/releaseutil"
+	"github.com/werf/3p-helm/pkg/storage/driver"
 )
 
 // HelmStorageType is the type field of the Kubernetes storage object which stores the Helm release

@@ -17,7 +17,7 @@ limitations under the License.
 package release
 
 import (
-	"helm.sh/helm/v3/pkg/time"
+	"github.com/werf/3p-helm/pkg/time"
 )
 
 // HookEvent specifies the hook event

@@ -25,9 +25,9 @@ import (
 
 	"github.com/pkg/errors"
 
-	"helm.sh/helm/v3/internal/sympath"
-	"helm.sh/helm/v3/pkg/chart"
-	"helm.sh/helm/v3/pkg/ignore"
+	"github.com/werf/3p-helm/internal/sympath"
+	"github.com/werf/3p-helm/pkg/chart"
+	"github.com/werf/3p-helm/pkg/ignore"
 )
 
 var utf8bom = []byte{0xEF, 0xBB, 0xBF}

@@ -3,7 +3,7 @@ package chartutil
 import (
 	"log"
 
-	"helm.sh/helm/v3/pkg/chart"
+	"github.com/werf/3p-helm/pkg/chart"
 )
 
 func CoalesceChartValues(c *chart.Chart, v map[string]interface{}, merge bool) {
