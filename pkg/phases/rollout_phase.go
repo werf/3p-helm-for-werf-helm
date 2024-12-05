@@ -94,7 +94,7 @@ func (m *RolloutPhase) IsPhaseStarted() bool {
 	}
 
 	switch *m.Release.Info.LastPhase {
-	case rel.PhaseRollout, rel.PhaseUninstall, rel.PhaseHooksPost:
+	case rel.PhaseRollout, rel.PhaseUninstall, rel.PhaseHooksPost, rel.PhaseHooksPre:
 		return true
 	default:
 		return false
