@@ -19,6 +19,7 @@ package chartutil
 import (
 	"fmt"
 	"io"
+	"log"
 	"os"
 	"strings"
 
@@ -158,7 +159,12 @@ func ToRenderValues(chrt *chart.Chart, chrtVals map[string]interface{}, options 
 
 	if err := ValidateAgainstSchema(chrt, vals); err != nil {
 		errFmt := "values don't meet the specifications of the schema(s) in the following chart(s):\n%s"
-		return top, fmt.Errorf(errFmt, err.Error())
+
+		if strings.Contains(err.Error(), "(root): Additional property werf is not allowed") {
+			log.Printf("Warning: %s", fmt.Sprintf(errFmt, err.Error()))
+		} else {
+			return top, fmt.Errorf(errFmt, err.Error())
+		}
 	}
 
 	top["Values"] = vals
