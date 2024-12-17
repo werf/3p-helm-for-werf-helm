@@ -32,17 +32,17 @@ import (
 	"k8s.io/client-go/kubernetes"
 	"k8s.io/client-go/rest"
 
-	"github.com/werf/3p-helm/pkg/chart"
-	"github.com/werf/3p-helm/pkg/chartutil"
-	"github.com/werf/3p-helm/pkg/engine"
-	"github.com/werf/3p-helm/pkg/kube"
-	"github.com/werf/3p-helm/pkg/postrender"
-	"github.com/werf/3p-helm/pkg/registry"
-	"github.com/werf/3p-helm/pkg/release"
-	"github.com/werf/3p-helm/pkg/releaseutil"
-	"github.com/werf/3p-helm/pkg/storage"
-	"github.com/werf/3p-helm/pkg/storage/driver"
-	"github.com/werf/3p-helm/pkg/time"
+	"github.com/werf/3p-helm-for-werf-helm/pkg/chart"
+	"github.com/werf/3p-helm-for-werf-helm/pkg/chartutil"
+	"github.com/werf/3p-helm-for-werf-helm/pkg/engine"
+	"github.com/werf/3p-helm-for-werf-helm/pkg/kube"
+	"github.com/werf/3p-helm-for-werf-helm/pkg/postrender"
+	"github.com/werf/3p-helm-for-werf-helm/pkg/registry"
+	"github.com/werf/3p-helm-for-werf-helm/pkg/release"
+	"github.com/werf/3p-helm-for-werf-helm/pkg/releaseutil"
+	"github.com/werf/3p-helm-for-werf-helm/pkg/storage"
+	"github.com/werf/3p-helm-for-werf-helm/pkg/storage/driver"
+	"github.com/werf/3p-helm-for-werf-helm/pkg/time"
 )
 
 // Timestamper is a function capable of producing a timestamp.Timestamper.

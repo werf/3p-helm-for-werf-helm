@@ -20,10 +20,11 @@ import (
 	"fmt"
 
 	"github.com/pkg/errors"
-	"github.com/werf/3p-helm/pkg/kube"
-	"github.com/werf/3p-helm/pkg/releaseutil"
 	apierrors "k8s.io/apimachinery/pkg/api/errors"
 	"k8s.io/cli-runtime/pkg/resource"
+
+	"github.com/werf/3p-helm-for-werf-helm/pkg/kube"
+	"github.com/werf/3p-helm-for-werf-helm/pkg/releaseutil"
 )
 
 func existingResourceConflict(resources kube.ResourceList, releaseName, releaseNamespace string) (kube.ResourceList, error) {

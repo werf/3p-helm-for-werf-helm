@@ -23,9 +23,10 @@ import (
 	"time"
 
 	"github.com/pkg/errors"
-	"github.com/werf/3p-helm/pkg/kube"
-	"github.com/werf/3p-helm/pkg/release"
-	helmtime "github.com/werf/3p-helm/pkg/time"
+
+	"github.com/werf/3p-helm-for-werf-helm/pkg/kube"
+	"github.com/werf/3p-helm-for-werf-helm/pkg/release"
+	helmtime "github.com/werf/3p-helm-for-werf-helm/pkg/time"
 )
 
 // execHook executes all of the hooks for the given hook event.
